@@ -7,6 +7,7 @@
         if (rollBtn) {
             let currentDiceFace = "rotate3d(0, 1, 0, 0)";
             rollBtn.addEventListener('click', () => {
+                rollBtn.disabled = true;
                 const diceResult = getRandomInt(6);
                 console.log(diceResult);
                 const diceFaceTransformation = showDiceFace(diceResult);
@@ -25,7 +26,9 @@
                     easing: "ease-in",
                     fill: "forwards"
                 };
-                dice.animate(diceSpinning, diceTiming);
+                dice.animate(diceSpinning, diceTiming).onfinish = () => {
+                    rollBtn.disabled = false;
+                };
                 currentDiceFace = diceFaceTransformation;
             });
         }

@@ -10,6 +10,8 @@ if (dice) {
 
         rollBtn.addEventListener('click', () => {
 
+            rollBtn.disabled = true;
+
             const diceResult = getRandomInt(6);
 
             console.log(diceResult);
@@ -37,7 +39,9 @@ if (dice) {
             dice.animate(
                 diceSpinning,
                 diceTiming
-            );
+            ).onfinish = () => {
+                rollBtn.disabled = false;
+            };
 
             currentDiceFace = diceFaceTransformation;
 
