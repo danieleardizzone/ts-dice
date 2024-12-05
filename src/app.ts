@@ -6,17 +6,22 @@ if (dice) {
 
     if (rollBtn) {
 
+        let currentDiceFace = "rotate3d(0, 1, 0, 0)";
+
         rollBtn.addEventListener('click', () => {
 
             const diceResult = getRandomInt(6);
 
+            console.log(diceResult);
+
             const diceFaceTransformation = showDiceFace(diceResult);
 
-            console.log(diceResult, diceFaceTransformation)
+            const randomRotation = Math.random() * 10 + 200;
 
             let diceSpinning = [
-                { transform: "rotate3d(0, 0, 0, 0deg)" },
-                { transform: "rotate3d(1, 1, 0, 360deg)" },
+                { transform: currentDiceFace },
+                { transform: `rotate3d(.3, 1, 0, ${randomRotation}deg)`, offset: 0.5 },
+                { transform: "rotate3d(0, 1, 0, 0)" },
             ];
             if (diceResult !== 1) {
                 diceSpinning.push({ transform: diceFaceTransformation },);
@@ -33,6 +38,8 @@ if (dice) {
                 diceSpinning,
                 diceTiming
             );
+
+            currentDiceFace = diceFaceTransformation;
 
         });
 

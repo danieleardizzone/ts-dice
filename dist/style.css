@@ -11,6 +11,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -41,9 +42,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid black;
+            /* border: 1px solid black; */
             background-color: aquamarine;
             opacity: 0.5;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
 
             /* adesso andiamo a ruotate le nostre dice faces nel piano 3d con rotate per ruotarle e translatez per spostarle dal centro del cubo */
 
