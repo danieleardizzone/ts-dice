@@ -42,9 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* border: 1px solid black; */
-            background-color: aquamarine;
-            opacity: 0.5;
+            background-color: #fefaef;
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 6px;
 
@@ -73,6 +71,33 @@
             &.dice_face-6 {
                 transform: rotate3d(0, 1, 0, 180deg) translateZ(100px);
             }
+
+            [class$=-dot] {
+                width: 15%;
+                height: 15%;
+                background-color: black;
+                border-radius: 100%;
+
+                position: absolute;
+
+                [class^=top]& {
+                    top: 15%;
+                }
+
+                [class^=bottom]& {
+                    bottom: 15%;
+                }
+
+                [class*=left]& {
+                    left: 15%;
+                }
+
+                [class*=right]& {
+                    right: 15%;
+                }
+
+            }
+
         }
 
     }
