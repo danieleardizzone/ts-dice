@@ -13,7 +13,8 @@
     margin: 0 auto;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .scene {
@@ -24,20 +25,18 @@
 
     padding: 500px 0;
 
-    .cube {
+    .dice {
         width: 100%;
         height: 100%;
         position: relative;
         transform-style: preserve-3d;
         /* l'utilizzo di transform-style: preserve-3d consente di mantenere l'integrità delle trasformazioni tridimensionali degli elementi figli, permettendo la creazione di animazioni e strutture 3D più realistiche e coinvolgenti. */
 
-        animation: shuffle 1s infinite;
-
-        .cube_face {
+        .dice_face {
             position: absolute;
             width: 200px;
             height: 200px;
-            /* in questo modo permettiamo alle nostre cube_face di essere sovrapposte una sopra l'altra (prima del transform delle singole cubefaces) */
+            /* in questo modo permettiamo alle nostre dice_face di essere sovrapposte una sopra l'altra (prima del transform delle singole dicefaces) */
 
             display: flex;
             justify-content: center;
@@ -46,43 +45,33 @@
             background-color: aquamarine;
             opacity: 0.5;
 
-            /* adesso andiamo a ruotate le nostre cube faces nel piano 3d con rotate per ruotarle e translatez per spostarle dal centro del cubo */
+            /* adesso andiamo a ruotate le nostre dice faces nel piano 3d con rotate per ruotarle e translatez per spostarle dal centro del cubo */
 
-            &.cube_face-front {
+            &.dice_face-1 {
                 transform: rotate3d(0, 1, 0, 0) translateZ(100px);
             }
 
-            &.cube_face-right {
-                transform: rotate3d(0, 1, 0, 90deg) translateZ(100px);
-            }
-
-            &.cube_face-back {
-                transform: rotate3d(0, 1, 0, 180deg) translateZ(100px);
-            }
-
-            &.cube_face-left {
-                transform: rotate3d(0, 1, 0, -90deg) translateZ(100px);
-            }
-
-            &.cube_face-top {
+            &.dice_face-2 {
                 transform: rotate3d(1, 0, 0, 90deg) translateZ(100px);
             }
 
-            &.cube_face-bottom {
+            &.dice_face-3 {
+                transform: rotate3d(0, 1, 0, -90deg) translateZ(100px);
+            }
+
+            &.dice_face-4 {
+                transform: rotate3d(0, 1, 0, 90deg) translateZ(100px);
+            }
+
+            &.dice_face-5 {
                 transform: rotate3d(1, 0, 0, -90deg) translateZ(100px);
+            }
+
+            &.dice_face-6 {
+                transform: rotate3d(0, 1, 0, 180deg) translateZ(100px);
             }
         }
 
     }
 
-}
-
-@keyframes shuffle {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
-
-    to {
-        transform: rotate3d(1, 1, 0, 720deg);
-    }
 }
