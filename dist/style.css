@@ -31,7 +31,7 @@
         transform-style: preserve-3d;
         /* l'utilizzo di transform-style: preserve-3d consente di mantenere l'integrità delle trasformazioni tridimensionali degli elementi figli, permettendo la creazione di animazioni e strutture 3D più realistiche e coinvolgenti. */
 
-        animation: shuffle 1s infinite ease-out;
+        animation: shuffle 1s infinite;
 
         .cube_face {
             position: absolute;
@@ -79,10 +79,10 @@
 
 @keyframes shuffle {
     from {
-        transform: rotateX(0deg) rotateY(0deg);
+        transform: rotate3d(0, 0, 0, 0deg);
     }
 
     to {
-        transform: rotateX(360deg) rotateY(360deg);
+        transform: rotate3d(1, 1, 0, 720deg);
     }
 }
