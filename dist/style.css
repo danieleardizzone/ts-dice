@@ -33,6 +33,9 @@ body {
     /* padding: 500px 0; */
 
     .dice {
+        will-change: transform;
+        /* Comunica al browser che l'elemento cambierà, forzandolo a ottimizzare l'elemento per le animazioni */
+
         width: 100%;
         height: 100%;
         position: relative;
